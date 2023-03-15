@@ -2,7 +2,6 @@ package com.company.bean;
 
 import java.sql.Time;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 
@@ -18,7 +17,8 @@ public class Sucursal {
     private String Domicilio;
     private Time horarioInicio;
     private Time horarioCierre;
-    private List<Vehiculo > vehiculos = new ArrayList<>();
+    private List< Vehiculo > vehiculos = new ArrayList<>();
+
     public Sucursal() {
     }
 
@@ -27,17 +27,17 @@ public class Sucursal {
         return horarioCierre;
     }
 
+    public void setHorarioCierre(Time horarioCierre) {
+
+        this.horarioCierre = horarioCierre;
+    }
+
     public List< Vehiculo > getVehiculos() {
         return vehiculos;
     }
 
     public void setVehiculos(List< Vehiculo > vehiculos) {
         this.vehiculos = vehiculos;
-    }
-
-    public void setHorarioCierre(Time horarioCierre) {
-
-        this.horarioCierre = horarioCierre;
     }
 
     public Time getHorarioInicio() {

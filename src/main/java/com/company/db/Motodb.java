@@ -13,15 +13,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Motodb {
-    public static String bool="T";
+    public static String bool = "T";
 
 
     public static List< Moto > consultarMoto() throws SQLException {
-        List< Moto >camionetas = new ArrayList< Moto >();
+        List< Moto > camionetas = new ArrayList< Moto >();
         ConectDb c = new ConectDb();
         Statement stmt = c.getC().createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM Moto "+
-                "inner join Vehiculos on Vehiculos.patente=Moto.vehiculos_patente"+
+        ResultSet rs = stmt.executeQuery("SELECT * FROM Moto " +
+                "inner join Vehiculos on Vehiculos.patente=Moto.vehiculos_patente" +
                 " inner join Tipocombustible on Vehiculos.idtipocombustiblr=Tipocombustible.id;");
         while (rs.next()) {
             int ide = rs.getInt("id");
@@ -40,7 +40,7 @@ public class Motodb {
                 boolean aldia = bool.equalsIgnoreCase(rs.getString("servicioaldia"));
                 TipoCombustibledb tc = new TipoCombustibledb();
                 TipodeCombustible tipoComb = tc.getTipoCombustible(tipocombustible);
-                Moto camioneta =new Moto(ide, vehiculos_patente, km, tipoComb, modelo, marca, precio, aldia, detalle, tipo);
+                Moto camioneta = new Moto(ide, vehiculos_patente, km, tipoComb, modelo, marca, precio, aldia, detalle, tipo);
                 camionetas.add(camioneta);
             }
         }
@@ -77,12 +77,13 @@ public class Motodb {
                     return new Moto(ide, vehiculos_patente, km, tipoComb, modelo, marca, precio, aldia, detalle, tipo);
                 }
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
 
     }
+
     public static Boolean addMoto(Moto moto) throws SQLException {
         ConectDb c = new ConectDb();
         Statement stmt = c.getC().createStatement();
@@ -97,14 +98,14 @@ public class Motodb {
             pstmt.setString(4, moto.getMarca());
             pstmt.setInt(5, moto.getModelo());
             if (moto.isServiceAlDia())
-                pstmt.setString(6,"T");
+                pstmt.setString(6, "T");
             else
-                pstmt.setString(6,"F");
+                pstmt.setString(6, "F");
             pstmt.setFloat(7, moto.getPrecio());
-            pstmt.setInt(8,moto.getTipoConbustible().getId());
-            pstmt.setInt(9,1);
+            pstmt.setInt(8, moto.getTipoConbustible().getId());
+            pstmt.setInt(9, 1);
             ResultSet rs = pstmt.executeQuery();
-            if (rs.next()){
+            if (rs.next()) {
                 pstmt = c.getC().prepareStatement("INSERT INTO Moto VALUES (?,?,?,?,?,?)");
                 pstmt.setInt(1, moto.getId());
                 pstmt.setString(2, moto.getDetalle());
@@ -122,7 +123,7 @@ public class Motodb {
     public static Boolean modificarMoto(Moto moto) throws SQLException {
         ConectDb c = new ConectDb();
         Statement stmt = c.getC().createStatement();
-        String permiso="F";
+        String permiso = "F";
         try {
             PreparedStatement pstmt = c.getC().prepareStatement("UPDATE  Vehiculo " +
                     "SET patente = ?, marca=?,modelo=?" +
@@ -134,12 +135,12 @@ public class Motodb {
             pstmt.setInt(4, moto.getKm());
             pstmt.setFloat(5, moto.getPrecio());
             if (moto.isServiceAlDia())
-                pstmt.setString(6,"T");
+                pstmt.setString(6, "T");
             else
-                pstmt.setString(6,"F");
+                pstmt.setString(6, "F");
             int rs = pstmt.executeUpdate();
             if (rs > 0) {
-                rs=0;
+                rs = 0;
                 PreparedStatement pstmtCam = c.getC().prepareStatement("UPDATE Moto " +
                         "SET detalle = ?" +
                         "WHERE id= ?;");

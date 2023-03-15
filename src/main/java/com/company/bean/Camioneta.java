@@ -10,14 +10,15 @@ package com.company.bean;
 public class Camioneta extends Vehiculo {
     private int id;
     private String detalle;
-    public Camioneta(int id,String patente, Integer km,
+
+    public Camioneta(int id, String patente, Integer km,
                      TipodeCombustible tipoConbustible,
                      Integer modelo, String marca,
-                     float precio, boolean serviceAlDia,String detalle,String tipo) {
+                     float precio, boolean serviceAlDia, String detalle, String tipo) {
 
-        super( patente, km,tipoConbustible,modelo, marca,  precio,serviceAlDia,tipo) ;
-        this.id=id;
-        this.detalle=detalle;
+        super(patente, km, tipoConbustible, modelo, marca, precio, serviceAlDia, tipo);
+        this.id = id;
+        this.detalle = detalle;
     }
 
     public int getId() {

@@ -1,6 +1,7 @@
 package com.company.db;
 
 import com.company.bean.Usuario;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +13,7 @@ import java.util.List;
 public class Usuariodb {
 
 
-    public static String bool="T";
+    public static String bool = "T";
 
     public static List< Usuario > consultarUsuarios() throws SQLException {
         List< Usuario > usuarios = new ArrayList< Usuario >();
@@ -24,7 +25,7 @@ public class Usuariodb {
             String nombre = rs.getString("nombre");
             String clave = rs.getString("clave");
             boolean permiso = bool.equalsIgnoreCase(rs.getString("permiso"));
-            Usuario us = new Usuario(id, nombre, clave,permiso);
+            Usuario us = new Usuario(id, nombre, clave, permiso);
             usuarios.add(us);
         }
         rs.close();
@@ -46,7 +47,7 @@ public class Usuariodb {
                 String nombre = rs.getString("nombre");
                 String clave = rs.getString("clave");
                 boolean permiso = bool.equalsIgnoreCase(rs.getString("permiso"));
-               return (new Usuario(id, nombre, clave,permiso));
+                return (new Usuario(id, nombre, clave, permiso));
 
             }
         } catch (SQLException e) {
@@ -58,8 +59,8 @@ public class Usuariodb {
     public static Boolean addUsuario(Usuario usuario) throws SQLException {
         ConectDb c = new ConectDb();
         Statement stmt = c.getC().createStatement();
-        String petmiso="F";
-        if (usuario.getPermisoABM()) petmiso="T";
+        String petmiso = "F";
+        if (usuario.getPermisoABM()) petmiso = "T";
         try {
             PreparedStatement pstmt = c.getC().prepareStatement("INSERT INTO usuario VALUES (?,?,?,?)");
             pstmt.setInt(1, usuario.getId());
@@ -78,11 +79,11 @@ public class Usuariodb {
     public static Boolean modificarUsuario(Usuario usuario) throws SQLException {
         ConectDb c = new ConectDb();
         Statement stmt = c.getC().createStatement();
-        String permiso="F";
-        if (usuario.getPermisoABM()) permiso="T";
+        String permiso = "F";
+        if (usuario.getPermisoABM()) permiso = "T";
         try {
             PreparedStatement pstmt = c.getC().prepareStatement("UPDATE  usuario " +
-                    "SET nombre = ?, clave=?,permiso=?"  +
+                    "SET nombre = ?, clave=?,permiso=?" +
                     "WHERE id= ?;");
             pstmt.setString(1, usuario.getNombre());
             pstmt.setString(2, usuario.getClave());
@@ -126,11 +127,11 @@ public class Usuariodb {
             while (rs.next()) {
                 int ide = rs.getInt("id");
                 boolean permiso = bool.equalsIgnoreCase(rs.getString("permiso"));
-                return (new Usuario(ide, nombre, clave,permiso));
+                return (new Usuario(ide, nombre, clave, permiso));
             }
 
         } catch (SQLException e) {
-            System.out.println("Error: (" + e.toString()+")");
+            System.out.println("Error: (" + e + ")");
 
         }
         return null;

@@ -2,7 +2,6 @@ package com.company.bean;
 
 
 import java.util.HashMap;
-import java.util.Iterator;
 
 /**
  * hacer procedimiento para cargar veiculo
@@ -11,9 +10,8 @@ import java.util.Iterator;
  */
 public class Consecionaria {
     private HashMap< String, Sucursal > sucursales = new HashMap< String, Sucursal >();
-    private HashMap< String, Vehiculo > vehiculos = new HashMap< String, Vehiculo >();
-    private HashMap< String, String > stock = new HashMap< String, String >();
-    ;
+    private final HashMap< String, Vehiculo > vehiculos = new HashMap< String, Vehiculo >();
+    private final HashMap< String, String > stock = new HashMap< String, String >();
 
 
     //String coinside con String de sucursal
@@ -32,7 +30,6 @@ public class Consecionaria {
 
         this.sucursales = sucursales;
     }
-
 
 
     public void mostrarDatosDeSucursal(String nombSucursal) {

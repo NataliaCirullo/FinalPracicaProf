@@ -1,23 +1,23 @@
 package com.company.bean;
 
 public abstract class Vehiculo {
+    private final Integer modelo;
+    private final String marca;
     private String patente;
     private String tipo;
     private Integer km;
     private TipodeCombustible tipoConbustible;
-    private final Integer modelo;
-    private final String marca;
     private float precio;
     private boolean serviceAlDia;
 
-    protected Vehiculo(Integer modelo,String marca) {
+    protected Vehiculo(Integer modelo, String marca) {
         this.modelo = modelo;
-        this.marca= marca;
+        this.marca = marca;
     }
 
     public Vehiculo(String patente, Integer km,
                     TipodeCombustible tipoConbustible,
-                    Integer modelo, String marca, float precio, boolean serviceAlDia,String tipo) {
+                    Integer modelo, String marca, float precio, boolean serviceAlDia, String tipo) {
         this.patente = patente;
         this.km = km;
         this.tipoConbustible = tipoConbustible;
@@ -25,7 +25,7 @@ public abstract class Vehiculo {
         this.marca = marca;
         this.precio = precio;
         this.serviceAlDia = serviceAlDia;
-        this.tipo=tipo;
+        this.tipo = tipo;
     }
 
 
@@ -33,12 +33,24 @@ public abstract class Vehiculo {
         return serviceAlDia;
     }
 
+    public void setServiceAlDia(boolean serviceAlDia) {
+        this.serviceAlDia = serviceAlDia;
+    }
+
     public float getPrecio() {
         return precio;
     }
 
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+
     public Integer getKm() {
         return km;
+    }
+
+    public void setKm(Integer km) {
+        this.km = km;
     }
 
     public String getMarca() {
@@ -51,18 +63,6 @@ public abstract class Vehiculo {
 
     public TipodeCombustible getTipoConbustible() {
         return tipoConbustible;
-    }
-
-    public void setKm(Integer km) {
-        this.km = km;
-    }
-
-    public void setPrecio(float precio) {
-        this.precio = precio;
-    }
-
-    public void setServiceAlDia(boolean serviceAlDia) {
-        this.serviceAlDia = serviceAlDia;
     }
 
     public void setTipoConbustible(TipodeCombustible tipoConbustible) {

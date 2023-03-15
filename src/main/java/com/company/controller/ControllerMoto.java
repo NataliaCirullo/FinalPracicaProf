@@ -1,6 +1,5 @@
 package com.company.controller;
 
-import com.company.bean.Camioneta;
 import com.company.bean.Moto;
 import com.company.db.Motodb;
 
@@ -18,7 +17,7 @@ public class ControllerMoto {
 
     public List< Moto > listartarMotos() throws SQLException {
         List< Moto > motos = new ArrayList< Moto >();
-        motos= Motodb.consultarMoto();
+        motos = Motodb.consultarMoto();
         return motos;
     }
 

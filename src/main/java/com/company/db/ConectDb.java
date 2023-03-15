@@ -5,11 +5,11 @@ import java.sql.*;
 public class ConectDb {
 
     private Connection c = null; // Objeto de tipo coneccion donde se guardaran los datos de coneccion
-    private Statement stmt = null; // Objeto de tipo sentencia SQL
-    private ResultSet rs = null; // Objeto de tipo resultado Query SQL
-    private String url = "jdbc:postgresql://localhost:5432/adminconcecionaria";
-    private String usuario = "natalia";
-    private String passware = "natalia";
+    private final Statement stmt = null; // Objeto de tipo sentencia SQL
+    private final ResultSet rs = null; // Objeto de tipo resultado Query SQL
+    private final String url = "jdbc:postgresql://localhost:5432/adminconcecionaria";
+    private final String usuario = "natalia";
+    private final String passware = "natalia";
 
     // CONSTRUCTORLI
     public ConectDb() throws SQLException {

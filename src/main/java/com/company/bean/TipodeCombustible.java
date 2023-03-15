@@ -9,8 +9,8 @@ public class TipodeCombustible {
 
     }
 
-    public TipodeCombustible(int id,String Tipo,boolean conGas){
-        this.id=id;
+    public TipodeCombustible(int id, String Tipo, boolean conGas) {
+        this.id = id;
         this.tipo = tipo;
         this.conGas = conGas;
     }
@@ -31,12 +31,12 @@ public class TipodeCombustible {
         this.tipo = tipo;
     }
 
-    public void setConGas(boolean conGas) {
-        this.conGas = conGas;
-    }
-
     public boolean isConGas() {
         return this.conGas;
+    }
+
+    public void setConGas(boolean conGas) {
+        this.conGas = conGas;
     }
 
     @Override

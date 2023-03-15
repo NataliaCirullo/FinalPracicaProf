@@ -11,8 +11,8 @@ public class Usuario implements Serializable {
     public Usuario(int id, String nombre, String clave, boolean permiso) {
         this.id = id;
         this.nombre = nombre;
-        this.clave= clave;
-        this.permisoABM=permiso;
+        this.clave = clave;
+        this.permisoABM = permiso;
     }
 
     public Usuario() {

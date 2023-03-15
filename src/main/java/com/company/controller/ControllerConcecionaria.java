@@ -1,12 +1,14 @@
 package com.company.controller;
 
 import com.company.bean.Usuario;
+
 import java.sql.SQLException;
 import java.util.Scanner;
+
 /**
  * Crear una base de datos relacional SQL local donde se aloje toda la
  * informacion del sistema como Clientes, Vehiculos, Sucursales, etc.
- *
+ * <p>
  * Todos los usuarios pueden realizar búsquedas filtrando por cualquier
  * criterio incluso combinando cualquiera de los mismos. Recuerda que los
  * datos a considerar son:
@@ -17,7 +19,7 @@ import java.util.Scanner;
  * e. precio
  * f. servicio al día
  * g. categoría (camioneta/auto/motocicleta)
- * */
+ */
 public class ControllerConcecionaria {
 
 
@@ -35,9 +37,9 @@ public class ControllerConcecionaria {
             System.out.println("5.- Listar Autos ");
             System.out.println("6.- Listar Motos ");
             System.out.println("7.- Listar Camionetas ");
-            if (usuario==null)
+            if (usuario == null)
                 System.out.println("8.- Loguin ");
-            if ((usuario!=null) && (usuario.getPermisoABM()))
+            if ((usuario != null) && (usuario.getPermisoABM()))
                 System.out.println("9.-Listar Usuarios ");
             System.out.println("10.- Salir");
             opcionElegida = sc.nextInt();
@@ -47,7 +49,7 @@ public class ControllerConcecionaria {
                     //Sucursal 1
                     break;
                 case 2:
-                   // Sucursal 2;
+                    // Sucursal 2;
                     break;
                 case 3:
                     //3Sucursal 3
@@ -56,15 +58,15 @@ public class ControllerConcecionaria {
                     //Sucursales
                     break;
                 case 5:
-                    ControllerAuto cauto= new ControllerAuto();
+                    ControllerAuto cauto = new ControllerAuto();
                     System.out.println(cauto.listartarAutos());
                     break;
                 case 6:
-                    ControllerMoto cmoto= new ControllerMoto();
+                    ControllerMoto cmoto = new ControllerMoto();
                     System.out.println(cmoto.listartarMotos());
                     break;
                 case 7:
-                    ControllerCamioneta camioneta= new ControllerCamioneta();
+                    ControllerCamioneta camioneta = new ControllerCamioneta();
                     System.out.println(camioneta.listartarCamioneta());
                     break;
                 case 8:
@@ -76,8 +78,8 @@ public class ControllerConcecionaria {
                     }
                     break;
                 case 9:
-                    ControllerUsuario usuario1= new ControllerUsuario();
-                    System.out.println(  usuario1.listartarUsuarios());
+                    ControllerUsuario usuario1 = new ControllerUsuario();
+                    System.out.println(usuario1.listartarUsuarios());
                     break;
                 case 10:
                     break;

@@ -10,14 +10,14 @@ En caso contrario
     private int id;
     private String detalle;
 
-    public Moto(int id,String patente, Integer km,
+    public Moto(int id, String patente, Integer km,
                 TipodeCombustible tipoConbustible,
                 Integer modelo, String marca,
-                float precio, boolean serviceAlDia,String detalle,String tipo) {
+                float precio, boolean serviceAlDia, String detalle, String tipo) {
 
-        super( patente, km,tipoConbustible,modelo, marca,  precio,serviceAlDia,tipo) ;
-        this.id=id;
-        this.detalle=detalle;
+        super(patente, km, tipoConbustible, modelo, marca, precio, serviceAlDia, tipo);
+        this.id = id;
+        this.detalle = detalle;
     }
 
     public int getId() {
